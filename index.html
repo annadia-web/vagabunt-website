@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>VAGABUNT | Kaffee · Genuss · Begegnung</title>
+  <meta name="description" content="VAGABUNT – Kaffee, Genuss und Begegnung. Ab Frühjahr 2027 unterwegs in Vorarlberg. Für Hochzeiten, Events, Märkte und mehr.">
+
+  <style>
+    :root {
+      --cream: #f5f1e8;
+      --cream-light: #fbf9f4;
+      --black: #171714;
+      --green: #a8ad91;
+      --green-dark: #747b62;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      padding: 28px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      letter-spacing: 5px;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+    }
+
+    nav a {
+      color: var(--black);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      opacity: 0.55;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      padding: 150px 8% 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      font-size: clamp(52px, 8vw, 110px);
+      line-height: 0.98;
+      max-width: 1000px;
+      letter-spacing: -3px;
+    }
+
+    .hero h1 span {
+      font-style: italic;
+    }
+
+    .hero-bottom {
+      margin-top: 55px;
+      display: flex;
+      align-items: center;
+      gap: 35px;
+      flex-wrap: wrap;
+    }
+
+    .claim {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 24px;
+      border: 1px solid var(--black);
+      color: var(--black);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--black);
+      color: var(--cream);
+    }
+
+    /* INTRO */
+
+    .intro {
+      background: var(--green);
+      padding: 120px 8%;
+    }
+
+    .intro-inner {
+      max-width: 900px;
+    }
+
+    .section-number {
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-bottom: 35px;
+      text-transform: uppercase;
+    }
+
+    .intro h2,
+    .events h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: 1.05;
+      margin-bottom: 40px;
+    }
+
+    .intro p {
+      max-width: 700px;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .intro p + p {
+      margin-top: 22px;
+    }
+
+    /* ANGEBOT */
+
+    .angebot {
+      padding: 120px 8%;
+      background: var(--cream-light);
+    }
+
+    .angebot-header {
+      margin-bottom: 70px;
+    }
+
+    .angebot-header h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: normal;
+    }
+
+    .angebot-grid {
+      border-top: 1px solid var(--black);
+    }
+
+    .angebot-item {
+      display: grid;
+      grid-template-columns: 80px 1fr 2fr;
+      gap: 30px;
+      padding: 35px 0;
+      border-bottom: 1px solid var(--black);
+      align-items: start;
+    }
+
+    .angebot-item .number {
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .angebot-item h3 {
+      text-transform: uppercase;
+      font-size: 15px;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+
+    .angebot-item p {
+      max-width: 550px;
+      font-size: 15px;
+    }
+
+    /* EVENTS */
+
+    .events {
+      background: var(--black);
+      color: var(--cream);
+      padding: 130px 8%;
+    }
+
+    .events-inner {
+      max-width: 900px;
+    }
+
+    .events p {
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 700px;
+      margin-bottom: 35px;
+    }
+
+    .events .button {
+      border-color: var(--cream);
+      color: var(--cream);
+    }
+
+    .events .button:hover {
+      background: var(--cream);
+      color: var(--black);
+    }
+
+    /* COMING SOON */
+
+    .coming {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 8%;
+    }
+
+    .coming-inner {
+      max-width: 900px;
+    }
+
+    .coming h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      font-size: clamp(46px, 7vw, 90px);
+      line-height: 1;
+      margin-bottom: 40px;
+    }
+
+    .coming p {
+      max-width: 650px;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--green);
+      padding: 80px 8% 35px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      padding-bottom: 70px;
+    }
+
+    .footer-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 6vw, 80px);
+      font-weight: normal;
+      line-height: 1;
+    }
+
+    .contact a {
+      color: var(--black);
+      text-decoration: none;
+      border-bottom: 1px solid var(--black);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(0,0,0,.35);
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* HANDY */
+
+    @media (max-width: 700px) {
+
+      header {
+        padding: 24px 6%;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .intro,
+      .angebot,
+      .events,
+      .coming,
+      footer {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      .angebot-item {
+        grid-template-columns: 45px 1fr;
+      }
+
+      .angebot-item p {
+        grid-column: 2;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">VAGABUNT</div>
+
+  <nav>
+    <a href="#vagabunt">Vagabunt</a>
+    <a href="#angebot">Angebot</a>
+    <a href="#events">Events</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+</header>
+
+
+<main>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="eyebrow">
+      Ab Frühjahr 2027 · Vorarlberg
+    </div>
+
+    <h1>
+      Ein Café.<br>
+      Nicht ganz zufällig<br>
+      <span>auf Rädern.</span>
+    </h1>
+
+    <div class="hero-bottom">
+
+      <div class="claim">
+        Kaffee · Genuss · Begegnung
+      </div>
+
+      <a href="#kontakt" class="button">
+        VAGABUNT anfragen
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- VAGABUNT -->
+
+  <section class="intro" id="vagabunt">
+
+    <div class="intro-inner">
+
+      <div class="section-number">
+        01 · VAGABUNT
+      </div>
+
+      <h2>
+        Guter Kaffee.<br>
+        Schöne Begegnungen.
+      </h2>
+
+      <p>
+        VAGABUNT ist ein mobiles Café aus Vorarlberg.
+        Wir kommen dorthin, wo Menschen zusammenkommen –
+        auf Märkte, zu Veranstaltungen, Hochzeiten
+        und an besondere Orte.
+      </p>
+
+      <p>
+        Im Mittelpunkt steht richtig guter Kaffee.
+        Dazu gibt es hausgemachte Waffeln, regionales Eis,
+        ausgewählte Kaltgetränke und saisonale Kleinigkeiten.
+      </p>
+
+      <p>
+        Und manchmal braucht es gar nicht mehr:
+        einen guten Kaffee, einen schönen Ort
+        und ein bisschen Zeit zum Bleiben.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ANGEBOT -->
+
+  <section class="angebot" id="angebot">
+
+    <div class="angebot-header">
+
+      <div class="section-number">
+        02 · WAS ES BEI UNS GIBT
+      </div>
+
+      <h2>
+        Einfach gut.
+      </h2>
+
+    </div>
+
+
+    <div class="angebot-grid">
+
+      <div class="angebot-item">
+
+        <div class="number">01</div>
+
+        <h3>Kaffee</h3>
+
+        <p>
+          Hochwertiger Barista-Kaffee – vom Espresso
+          bis zum Cappuccino. Pflanzliche Milchalternativen
+          gibt es selbstverständlich auch.
+        </p>
+
+      </div>
+
+
+      <div class="angebot-item">
+
+        <div class="number">02</div>
+
+        <h3>Waffeln</h3>
+
+        <p>
+          Frisch gebacken, hausgemacht und mit
+          ausgewählten Toppings.
+        </p>
+
+      </div>
+
+
+      <div class="angebot-item">
+
+        <div class="number">03</div>
+
+        <h3>Eis</h3>
+
+        <p>
+          Regionales Eis aus Vorarlberg –
+          klassisch, besonders und auch vegan.
+        </p>
+
+      </div>
+
+
+      <div class="angebot-item">
+
+        <div class="number">04</div>
+
+        <h3>Und mehr</h3>
+
+        <p>
+          Regionale Kaltgetränke, Tee und
+          wechselnde saisonale Angebote.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- EVENTS -->
+
+  <section class="events" id="events">
+
+    <div class="events-inner">
+
+      <div class="section-number">
+        03 · VAGABUNT KOMMT ZU EUCH
+      </div>
+
+      <h2>
+        Kaffee für eure<br>
+        besonderen Momente.
+      </h2>
+
+      <p>
+        Hochzeit, Firmenfeier, Festival, Sportveranstaltung
+        oder Familienfest – VAGABUNT kann für Veranstaltungen
+        gebucht werden.
+      </p>
+
+      <p>
+        Dabei bringen wir nicht einfach nur Kaffee mit.
+        Wir bringen unseren kleinen Lieblingsort mit:
+        guten Kaffee, frische Waffeln und eine entspannte
+        Atmosphäre für eure Gäste.
+      </p>
+
+      <a href="mailto:anna@vagabunt.at" class="button">
+        Event anfragen
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- COMING SOON -->
+
+  <section class="coming">
+
+    <div class="coming-inner">
+
+      <div class="section-number">
+        04 · COMING 2027
+      </div>
+
+      <h2>
+        Noch sind wir<br>
+        nicht ganz da.
+      </h2>
+
+      <p>
+        Hinter den Kulissen entsteht gerade VAGABUNT.
+        Wir bauen, planen, probieren Kaffee, testen Waffeln
+        und suchen die schönsten Orte und Veranstaltungen,
+        an denen wir 2027 mit euch zusammenkommen können.
+      </p>
+
+      <br>
+
+      <p>
+        <strong>Ab Frühjahr 2027 geht's los.</strong>
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer id="kontakt">
+
+  <div class="footer-top">
+
+    <div>
+
+      <div class="section-number">
+        Lust auf VAGABUNT?
+      </div>
+
+      <div class="footer-title">
+        Schreib uns.
+      </div>
+
+    </div>
+
+    <div class="contact">
+
+      <p>
+        <a href="mailto:anna@vagabunt.at">
+          anna@vagabunt.at
+        </a>
+      </p>
+
+      <p>
+        <a href="https://instagram.com/vagabunt.at">
+          @vagabunt.at
+        </a>
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <div>
+      VAGABUNT · Vorarlberg
+    </div>
+
+    <div>
+      Kaffee · Genuss · Begegnung
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
